@@ -1,0 +1,137 @@
+{
+  "rows": 53600,
+  "products": 580,
+  "pooled": {
+    "elasticity": -0.20893932636996151,
+    "se": 0.026064629602281272
+  },
+  "fixed_effects": {
+    "elasticity": -2.099576188557687,
+    "se": 0.061279888048878094
+  },
+  "fe_promo": {
+    "elasticity": -1.472679472978956,
+    "se": 0.057639909455849875
+  },
+  "fe_promo_lag": {
+    "elasticity": -1.5010263060459585,
+    "se": 0.06020751136849187,
+    "lag_price": 0.11386613018410921,
+    "lag_se": 0.027327672492052802
+  },
+  "dml": {
+    "elasticity": -1.499685746552211,
+    "se": 0.056388857410371834,
+    "price_variation_left": 0.7429452362504735
+  },
+  "by_commodity": {
+    "BAG SNACKS": {
+      "elasticity": -1.477221033385409,
+      "se": 0.13266624488231865,
+      "price_variation_left": 0.7904390904683071,
+      "products": 58,
+      "rows": 5288,
+      "revenue_change_price_up_5pct": -0.023014719004383677,
+      "breakeven_margin_10pct_cut": 0.6938016577557542
+    },
+    "BAKED BREAD/BUNS/ROLLS": {
+      "elasticity": -1.155371506801659,
+      "se": 0.12369165581885576,
+      "price_variation_left": 0.9166725396888179,
+      "products": 51,
+      "rows": 4699,
+      "revenue_change_price_up_5pct": -0.0075519410323622305,
+      "breakeven_margin_10pct_cut": 0.8725007250406173
+    },
+    "BEERS/ALES": {
+      "elasticity": -2.114763963573494,
+      "se": 0.2501712399052701,
+      "price_variation_left": 0.8994448243908632,
+      "products": 9,
+      "rows": 852,
+      "revenue_change_price_up_5pct": -0.05293686234938644,
+      "breakeven_margin_10pct_cut": 0.5006628463286555
+    },
+    "CHEESE": {
+      "elasticity": -1.318265365078546,
+      "se": 0.10648558681122862,
+      "price_variation_left": 0.7169757104025227,
+      "products": 65,
+      "rows": 6148,
+      "revenue_change_price_up_5pct": -0.015408278239383622,
+      "breakeven_margin_10pct_cut": 0.7711351443289283
+    },
+    "COLD CEREAL": {
+      "elasticity": -1.769793751575452,
+      "se": 0.11425289659420218,
+      "price_variation_left": 0.6467896396206368,
+      "products": 39,
+      "rows": 3501,
+      "revenue_change_price_up_5pct": -0.03686179605152573,
+      "breakeven_margin_10pct_cut": 0.5878426856688349
+    },
+    "COOKIES/CONES": {
+      "elasticity": -2.0126588134465724,
+      "se": 0.0911723389770407,
+      "price_variation_left": 0.8097475112332484,
+      "products": 9,
+      "rows": 821,
+      "revenue_change_price_up_5pct": -0.04820708085221603,
+      "breakeven_margin_10pct_cut": 0.5233420810943987
+    },
+    "CRACKERS/MISC BKD FD": {
+      "elasticity": -1.843183362454564,
+      "se": 0.2509595740104766,
+      "price_variation_left": 0.6981441830319164,
+      "products": 15,
+      "rows": 1398,
+      "revenue_change_price_up_5pct": -0.040304329504553316,
+      "breakeven_margin_10pct_cut": 0.5665536810709426
+    },
+    "FLUID MILK PRODUCTS": {
+      "elasticity": -1.7873038307305436,
+      "se": 0.22005772046375174,
+      "price_variation_left": 0.663853722665388,
+      "products": 25,
+      "rows": 2449,
+      "revenue_change_price_up_5pct": -0.037684272552977904,
+      "breakeven_margin_10pct_cut": 0.5826040434085102
+    },
+    "FROZEN PIZZA": {
+      "elasticity": -2.0694447100323243,
+      "se": 0.13584438981687472,
+      "price_variation_left": 0.8230435973818442,
+      "products": 43,
+      "rows": 3874,
+      "revenue_change_price_up_5pct": -0.05084046215920579,
+      "breakeven_margin_10pct_cut": 0.5104516950733913
+    },
+    "SOFT DRINKS": {
+      "elasticity": -1.9443625653952517,
+      "se": 0.10750704590072735,
+      "price_variation_left": 0.6001290118380264,
+      "products": 111,
+      "rows": 10457,
+      "revenue_change_price_up_5pct": -0.04503024064640315,
+      "breakeven_margin_10pct_cut": 0.5398464880445406
+    },
+    "SOUP": {
+      "elasticity": -1.0492333889223457,
+      "se": 0.13554427448379816,
+      "price_variation_left": 0.7327112330621142,
+      "products": 60,
+      "rows": 5318,
+      "revenue_change_price_up_5pct": -0.0023992223822969505,
+      "breakeven_margin_10pct_cut": 0.9555073524020364
+    },
+    "YOGURT": {
+      "elasticity": -0.18914693971714505,
+      "se": 0.18247146568957753,
+      "price_variation_left": 0.6061533318381156,
+      "products": 95,
+      "rows": 8795,
+      "revenue_change_price_up_5pct": 0.04035463885820212,
+      "breakeven_margin_10pct_cut": null
+    }
+  }
+}

@@ -1,0 +1,11 @@
+numpy
+pandas
+polars
+pyarrow
+scipy
+scikit-learn
+lightgbm
+statsmodels
+matplotlib
+kaggle
+pytest

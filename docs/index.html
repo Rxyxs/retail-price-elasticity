@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retail Price Elasticity</title>
+<meta name="description" content="Own-price elasticity of 580 grocery products from 2,500 real households, from naive OLS to double machine learning, and when a discount pays for itself.">
+<style>
+  :root {
+    --bg: #FBFAF8; --surface: #FFFFFF; --ink: #23201D; --muted: #6B645D;
+    --line: #E3DED7; --accent: #B07D1A; --good: #4C7A3E;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151719; --surface: #1D2023; --ink: #E9EBED; --muted: #A2A8AE;
+      --line: #2E3236; --accent: #E0B050; --good: #7FAE6B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #151719; --surface: #1D2023; --ink: #E9EBED; --muted: #A2A8AE;
+    --line: #2E3236; --accent: #E0B050; --good: #7FAE6B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px 96px; }
+  header { padding: 72px 0 40px; border-bottom: 1px solid var(--line); margin-bottom: 44px; }
+  h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); line-height: 1.15; margin: 0 0 18px; letter-spacing: -0.02em; }
+  .lede { font-size: clamp(1.02rem, 2.4vw, 1.17rem); color: var(--muted); margin: 0 0 24px; max-width: 64ch; }
+  .lede strong { color: var(--ink); }
+  .links a {
+    display: inline-block; margin: 0 10px 10px 0; padding: 9px 15px;
+    border: 1px solid var(--line); border-radius: 7px; text-decoration: none;
+    color: var(--ink); background: var(--surface); font-size: 0.9rem; transition: border-color .15s;
+  }
+  .links a:hover { border-color: var(--accent); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 28px 0 0; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 9px; padding: 14px 16px; }
+  .stat b { display: block; font-size: 1.6rem; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .stat span { color: var(--muted); font-size: 0.85rem; }
+  h2 { font-size: 1.42rem; margin: 56px 0 8px; letter-spacing: -0.01em; padding-top: 10px; border-top: 1px solid var(--line); }
+  h2 .num { color: var(--accent); font-variant-numeric: tabular-nums; margin-right: 8px; }
+  p, li { max-width: 72ch; }
+  p { margin: 0 0 16px; }
+  figure { margin: 26px 0; }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 9px; background: #fff; }
+  figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 9px; max-width: 72ch; }
+  .tablewrap { overflow-x: auto; margin: 22px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9rem; min-width: 460px; }
+  th, td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--line); }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: .04em; }
+  .win td { color: var(--good); font-weight: 600; }
+  code { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; font-size: 0.88em; }
+  footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>How much does a price change move grocery demand?</h1>
+  <p class="lede">Two years of real purchases from 2,500 households, 580 packaged products, with loyalty discounts, in-store displays and mailers. Prices do not move at random: sales coincide with promotions and shoppers stock up. Removing those biases one at a time answers <strong>when a discount pays for itself</strong>.</p>
+  <div class="links">
+    <a href="https://github.com/Rxyxs/retail-price-elasticity">Code on GitHub</a>
+    <a href="https://www.kaggle.com/datasets/frtgnn/dunnhumby-the-complete-journey">Dataset on Kaggle</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>-1.50</b><span>own-price elasticity, double ML</span></div>
+    <div class="stat"><b>40%</b><span>overstatement if promotions are ignored (-2.10)</span></div>
+    <div class="stat"><b>+0.11</b><span>last week&#39;s discount lowers this week&#39;s sales</span></div>
+    <div class="stat"><b>50%+</b><span>gross margin needed for a 10% cut to pay, even for beer</span></div>
+  </div>
+</header>
+
+<h2><span class="num">01</span>Each control changes the answer</h2>
+<figure>
+  <img src="img/ladder.png" alt="Bar chart of the elasticity under five estimators: -0.21 pooled, -2.10 with fixed effects, -1.47 with display and mailer, -1.50 with last week price, -1.50 with double ML.">
+  <figcaption>Pooled OLS compares cheap and expensive products. Fixed effects compare each product with itself but credit promotions to the price. Controlling display and mailer brings the elasticity to -1.5, and double ML with flexible controls confirms it.</figcaption>
+</figure>
+
+<h2><span class="num">02</span>Categories differ, and discounts rarely pay on their own</h2>
+<figure>
+  <img src="img/by_category.png" alt="Horizontal bars of elasticity by category with 95% intervals: beer, frozen pizza, cookies and soft drinks around -2; bread and soup near -1 with intervals crossing it; yogurt near zero.">
+  <figcaption>Impulse categories are the most elastic; staples sit near unit elasticity, and yogurt barely responds to price.</figcaption>
+</figure>
+<p>A 10% discount raises profit on the product itself only above a break-even gross margin: 50% for beer, 54% for soft drinks, 87% for bread, 96% for soup, and never for yogurt. Discounts that make sense earn their keep through traffic, basket size or supplier funding, which a product-level elasticity does not measure.</p>
+
+<footer>
+  Pablo Reyes · Data: dunnhumby, The Complete Journey, via Kaggle (DbCL 1.0), not redistributed. Code under MIT.
+</footer>
+</div>
+</body>
+</html>
