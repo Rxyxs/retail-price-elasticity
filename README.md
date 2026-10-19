@@ -1,4 +1,4 @@
-**English** | [Español](README.es.md)
+[English ] | [[Español](README.es.md) ]
 
 # How much does a price change move grocery demand?
 
